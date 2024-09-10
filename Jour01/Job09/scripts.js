@@ -4,6 +4,8 @@ window.onload = function() {
             table.sort((a, b) => a - b);
         } else if (order === "desc") {
             table.sort((a, b) => b - a); 
+        } else {
+            console.log('wrong syntax')
         }
         return table;
     }
