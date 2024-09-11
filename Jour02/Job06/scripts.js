@@ -3,7 +3,7 @@ window.onload = function() {
     let corp = document.querySelector('body');
 
     play.addEventListener('input', function() {
-        if (play.value === "upup") {
+        if (play.value === "upupdowndownleftrightleftright") {
             corp.style.backgroundColor = "blue";
         }
     });
