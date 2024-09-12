@@ -20,4 +20,5 @@ window.onload = function() {
 
     console.log(sommenombrespremiers(3, 5));   
     console.log(sommenombrespremiers(4, 9));
+
 }
