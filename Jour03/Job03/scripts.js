@@ -1,35 +1,73 @@
 $(document).ready(function() {
-    $("#start").sortable({
-        update: function(event, ui) {
-            checkOrder(); 
-        }
-    });
+    let tiles = $(".tile");
+    let gridSize = 3; // Taille de la grille (3x3)
 
-    // Shuffle images when button is clicked
-    $("#btn").click(function() {
-        let container = $("#start");
-        let images = container.children();
-        images.sort(function() {
-            return Math.random() - 0.5; 
-        });
-        container.html(images); 
-    });
+    function isAdjacent(pos1, pos2) {
+        let row1 = Math.floor(pos1 / gridSize);
+        let col1 = pos1 % gridSize;
+        let row2 = Math.floor(pos2 / gridSize);
+        let col2 = pos2 % gridSize;
+        return (Math.abs(row1 - row2) === 1 && col1 === col2) || (Math.abs(col1 - col2) === 1 && row1 === row2);
+    }
 
-    function checkOrder() {
-        let correctOrder = ["id1", "id2", "id3", "id4", "id5", "id6"];
-        let currentOrder = [];
+    function moveTile(tile) {
+        let emptyTile = $(".tile.empty");
+        let tilePos = parseInt(tile.data("position"));
+        let emptyPos = parseInt(emptyTile.data("position"));
+        
+        if (isAdjacent(tilePos, emptyPos)) {
+            // Échanger les positions
+            emptyTile.data("position", tilePos);
+            tile.data("position", emptyPos);
 
-
-        $("#start img").each(function() {
-            currentOrder.push($(this).attr("id"));
-        });
-
-        if (JSON.stringify(correctOrder) === JSON.stringify(currentOrder)) {
-            $("#Result").text("You Win!").css("color","green")
-            console.log("You win")
-        } else {
-            $("#Result").text("You Loose").css("color", "red")
-            console.log("You loose!");
+            // Échanger les images de fond
+            let temp = tile.css("background-image");
+            tile.css("background-image", emptyTile.css("background-image"));
+            emptyTile.css("background-image", temp);
+            
+            checkWin(); // Vérifie si le joueur a gagné
         }
     }
+
+    function checkWin() {
+        let correctOrder = Array.from(Array(9).keys()); // Tableau de 0 à 8
+        let currentOrder = [];
+
+        tiles.each(function() {
+            currentOrder.push(parseInt($(this).data("position")));
+        });
+
+        if (JSON.stringify(correctOrder) === JSON.stringify(correctOrder.sort((a, b) => a - b))) {
+            $("#message").text("Vous avez gagné !").css("color", "green");
+            $("#restartButton").show();
+        }
+    }
+
+    function shuffleTiles() {
+        let positions = Array.from(Array(9).keys());
+        positions.sort(() => Math.random() - 0.5); // Mélange les positions
+
+        tiles.each(function(index) {
+            $(this).data("position", positions[index]);
+            $(this).css("background-image", `url(${positions[index] + 1}.PNG)`);
+        });
+
+        // Assigner la dernière position comme vide
+        $(".tile").last().addClass("empty").css("background-image", "");
+        $("#message").text("");
+        $("#restartButton").hide();
+    }
+
+    tiles.click(function() {
+        if (!$(this).hasClass("empty")) {
+            moveTile($(this));
+        }
+    });
+
+    $("#restartButton").click(function() {
+        shuffleTiles();
+    });
+
+    // Initialisation du jeu
+    shuffleTiles(); // Appel initial pour mélanger les carreaux au chargement de la page
 });
