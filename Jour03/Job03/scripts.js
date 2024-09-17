@@ -16,16 +16,14 @@ $(document).ready(function() {
         let emptyPos = parseInt(emptyTile.data("position"));
         
         if (isAdjacent(tilePos, emptyPos)) {
-            // Échanger les positions
             emptyTile.data("position", tilePos);
             tile.data("position", emptyPos);
 
-            // Échanger les images de fond
             let temp = tile.css("background-image");
             tile.css("background-image", emptyTile.css("background-image"));
             emptyTile.css("background-image", temp);
             
-            checkWin(); // Vérifie si le joueur a gagné
+            checkWin(); 
         }
     }
 
@@ -68,6 +66,5 @@ $(document).ready(function() {
         shuffleTiles();
     });
 
-    // Initialisation du jeu
-    shuffleTiles(); // Appel initial pour mélanger les carreaux au chargement de la page
+    shuffleTiles();
 });
