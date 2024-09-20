@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaPlateforme</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">LPTF</a>
         <div class="collapse navbar-collapse">
@@ -28,10 +29,8 @@
         </div>
     </nav>
 
-    <!-- Main Container -->
     <div class="container mt-4">
         <div class="row">
-            <!-- Left Sidebar -->
             <div class="col-md-3">
                 <div class="card">
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Papillon">
@@ -43,7 +42,6 @@
                 </div>
             </div>
 
-            <!-- Main Content -->
             <div class="col-md-6">
                 <h1>Bonjour, monde!</h1>
                 <p>Il existe plusieurs visions du terme :</p>
@@ -64,7 +62,6 @@
                 </div>
             </div>
 
-            <!-- Right Sidebar -->
             <div class="col-md-3">
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action active">Limbe</a>
@@ -81,7 +78,6 @@
             </div>
         </div>
 
-        <!-- Progress Bar and Form -->
         <div class="row mt-4">
             <div class="col-12">
                 <h3>Installation de AI 9000</h3>
@@ -119,6 +115,15 @@
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirmation</h2>
+            <p>Are you Sure that you want to proceed?</p>
+            <button id="close">Cancel</button>
+            <button type="submit">Confirm</button>
         </div>
     </div>
     <script src="scripts.js"></script>
