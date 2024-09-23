@@ -4,7 +4,7 @@ function initializeModal() {
     let $span = $(".close").first();    
     let $emailInput = $('#email'); 
     let $passwordInput = $('#password'); 
-    let content = $('.col-md-6 ul'); 
+    let $content = $('.col-md-6 ul'); 
 
     // Show modal on specific button click
     $('.card .btn-primary').on('click', function(){
@@ -15,20 +15,26 @@ function initializeModal() {
     // Update content on pagination link click
     $('.pagination .page-link2').on('click', function(event){
         event.preventDefault(); 
+        
+        // Remove 'active' class from all pagination items
+        $('.pagination .page-item').removeClass('active');
+
+        // Add 'active' class to the clicked item
+        $(this).parent().addClass('active');
 
         // Check which link was clicked based on its text content
-        switch ($(this).text()) {
+        switch ($(this).text().trim()) {
             case '1':
                 console.log("First Page Link Clicked");
-                content.html('<li>Blade runner est cool</li>'); 
+                $content.html('<li>Blade runner est cool</li>'); 
                 break;
             case '2':
                 console.log("Second Page Link Clicked");
-                content.html('<li>Blade runner est cool (ou pas)</li>');
+                $content.html('<li>Blade runner est cool (ou pas)</li>');
                 break;
             case '3':
                 console.log("Third Page Link Clicked");
-                content.html('<li>Portal est cool aussi</li>');
+                $content.html('<li>Portal est cool aussi</li>');
                 break;
         }
     });
