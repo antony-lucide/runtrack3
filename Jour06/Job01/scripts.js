@@ -35,6 +35,8 @@ function initializeModal() {
             case '3':
                 console.log("Third Page Link Clicked");
                 $content.html('<li>Portal est cool aussi</li>');
+                $content.html('  <a href="#" class="btn btn-sm btn-primary)>1</a>')
+                $content.html('  <a href="#" class="btn btn-sm btn-primary)')
                 break;
         }
     });

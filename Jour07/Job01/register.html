@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de Compte</title>
+    <!-- Import Materialize CSS Version 1.0.0 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Import Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="blue lighten-1">
+            <div class="nav-wrapper container"> 
+                <a href="index.html" class="brand-logo">Contact</a> 
+                <ul id="nav-mobile" class="right hide-on-med-and-down"> 
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html">Inscription</a></li>
+                    <li><a href="index.html">Connexion</a></li>
+                    <li><a href="index.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <h5>Créer un compte</h5>
+            <form action="submit_form.html" method="POST" class="row">
+                
+                <!-- Radio inputs for Civility -->
+                <p>Civilité:</p>
+                <p>
+                    <label>
+                        <input name="civilite" type="radio" value="Mr" />
+                        <span>Mr</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="civilite" type="radio" value="Mrs" />
+                        <span>Mme</span>
+                    </label>
+                </p>
+
+                <!-- Text inputs for First name, Last name, Address -->
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="prenom" type="text" name="prenom" required>
+                    <label for="prenom">Prénom</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="nom" type="text" name="nom" required>
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">location_on</i>
+                    <input id="adresse" type="text" name="adresse" required>
+                    <label for="adresse">Adresse</label>
+                </div>
+
+                <!-- Email input for Email address -->
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="mot_de_passe" type="password" name="mot_de_passe" required>
+                    <label for="mot_de_passe">Mot de Passe</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="confirm_mot_de_passe" type="password" name="confirm_mot_de_passe" required>
+                    <label for="confirm_mot_de_passe">Confirmer le Mot de Passe</label>
+                </div>
+
+                <!-- Checkbox inputs for Passions -->
+                <p>Passions:</p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="passions" value="informatique" />
+                        <span>Informatique</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="passions" value="voyages" />
+                        <span>Voyages</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="passions" value="sport" />
+                        <span>Sport</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="passions" value="lecture" />
+                        <span>Lecture</span>
+                    </label>
+                </p>
+
+                <!-- Submit Button -->
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light blue" type="submit" name="action">
+                        Créer un compte
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer with Navigation Links -->
+    <footer class="page-footer blue lighten-1"> <!-- Same color for footer -->
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Mon Site</h5>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Accueil</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Inscription</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Connexion</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Rechercher</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Import Materialize JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
